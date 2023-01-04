@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="main-body">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Information</li>
+            </ol>
+        </nav>
+        <!-- /Breadcrumb -->
+
+        <div class="gutters-sm align-items-stretch">
+
+            <div>
+                <div class="card mb-3">
+                    <div class="card-body">
+
+                        <div class="row align-items-center">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Avatar</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <img class="rounded-circle" src="{{user.avatar}}" alt="avatar" width="100" height="100">
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{user.fullname}}
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{user.email}}
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Address</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{user.address}}
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="row">
+                            <div class="col-6">
+                                <a class="btn btn-success w-25 rounded" href="/account/edit_profile">Edit</a>
+                            </div>
+                            <div class="col-6">
+                                <a class="btn btn-success w-50 rounded" href="/account/changePassword">Change password</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <h4>Payment history</h4>
+    <div class="tab-pane active" id="tabs-1" role="tabpanel">
+        <div class="container-fluid mt-4">
+            <div class="table-responsive" id="my-table">
+                <table id="allCheckout" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th>Cart</th>
+                            <th>Total amount</th>
+
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

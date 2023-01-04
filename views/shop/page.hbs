@@ -1,0 +1,344 @@
+<!-- Hero Section Begin -->
+<div class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-9">
+
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form class="form__search" onsubmit="return false">
+                            <input type="text" id="name_search" name="name" placeholder="What do you need?" />
+                            <button  id="btn_submit_search" class="site-btn">SEARCH</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-3">
+                <div class="hero__search__phone">
+                    <div class="hero__search__phone__icon">
+                        <i class="fa fa-phone"></i>
+                    </div>
+                    <div class="hero__search__phone__text">
+                        <h5>+65 11.188.888</h5>
+                        <span>support 24/7 time</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero Section End -->
+
+<!-- Breadcrumb Section Begin -->
+<div class="breadcrumb-section set-bg" data-setbg="/img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Organi Shop</h2>
+                    <div class="breadcrumb__option">
+                        <a href="/">Home</a>
+                        <span>Shop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Section End -->
+
+<!-- Product Section Begin -->
+<div class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-5">
+                <div class="sidebar">
+                    <div class="sidebar__item">
+                        <h4>Category</h4>
+                        <ul>
+                            {{#each listCategory}}
+                            <li><a href="" class="currentCategory" onclick="load_product_page(1, {{category_Id}})">{{this.name}}</a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="sidebar__item">
+                        <h4>Price</h4>
+                        <div class="price-range-wrap">
+                             <div class="range-slider">
+                                
+                                    <input type="number" id="minamounth" name="name" placeholder="Min" />
+                                    <input type="number" id="maxamounth" name="name" placeholder="Max" />
+                            </div>
+                            <div class="mt-2">
+                                <button id="btn-search-slider-price" class="btn btn-success btn-block">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar__item">
+                        <div class="latest-product__text">
+                            <h4>Latest Products</h4>
+                            <div class="latest-product__slider__item">
+                                {{#each latestProduct}}
+                                <a href="/detail/{{this.product_Id}}" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src={{this.image}} alt="" />
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>{{this.name}}</h6>
+                                        <span>{{this.price}}</span>
+                                    </div>
+                                </a>
+                                {{/each}}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-7">
+               
+                <div class="filter__item">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-5">
+                            <div class='filter__sort"'>
+                                <div class="sort-list">
+                                    <span class="sort-item">Sort by</span>
+                                    <ul class="sort-by">
+                                        <li><a href="" id="price-asc" class="sort-item">Price:
+                                                <span class="font-weight-bold">Ascending</span></a></li>
+                                        <li><a href="" id="price-desc" class="sort-item">Price:
+                                                <span class="font-weight-bold">Descending</span></a></li>
+                                        <li><a href="" id="star-asc" class="sort-item">Rate Star:
+                                                <span class="font-weight-bold">Ascending</span>
+                                            </a>
+                                        </li>
+                                        <li><a href="" id="star-desc" class="sort-item">Rate Star:
+                                                <span class="font-weight-bold">Descending</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="filter__found">
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-3">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="list_product_shop">
+                    {{#each listProducts.data}}
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic">
+                                <a href="/detail/{{this.product_Id}}">
+                                    <img src="{{this.image}}" alt="image" />
+                                </a>
+                                <ul class="product__item__pic__hover">
+                                    <li>
+                                        <a onclick="addToCart({{this.product_Id}})">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="/detail/{{this.product_Id}}">{{this.name}}</a></h6>
+                                <h5><a class="product__item__price"
+                                        href="/detail/{{this.product_Id}}">{{this.price}}</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                <p id="total_page" style="display: none;">{{listProducts.total_page}}</p>
+                <div id="page_component" class="d-flex justify-content-center product__pagination">
+                    
+                    {{!-- <a href="/shop{{url_link}}/page/{{listcurrentPage}}{{url_sort}}{{url_filter}}"
+                        class="currentPage">{{listcurrentPage}}</a> --}}
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Section End -->
+
+<script>
+    let total_page= document.getElementById("total_page").innerText
+    let pageComponent = document.getElementById("page_component")
+    
+    let list_product= document.getElementById("list_product_shop")
+    let preCateID=0;
+    let preNameSearch='';
+    let preSort='';
+    let preMin=0;
+    let preMax=0;
+    function load_product_page(page=1, cate_id=preCateID, name=preNameSearch, sort=preSort, min=preMin, max=preMax){                        
+        let htmlListProduct=``
+        $.getJSON(`/api/shop?page=${page}&cate_id=${cate_id||''}&name=${name||''}&sort=${sort||''}&min=${min||''}&max=${max||''}`, function (products) {
+            const data= products.data.map(v=>{
+                v.price = v.price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
+                return `
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic">
+                                <a href="/detail/${v.product_Id}">
+                                    <img src="${v.image}" alt="image" />
+                                </a>
+                                <ul class="product__item__pic__hover">
+                                    <li>
+                                        <a onclick="addToCart(${v.product_Id})">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <h6><a href="/detail/${v.product_Id}">${v.name}</a></h6>
+                                <h5><a class="product__item__price"
+                                        href="/detail/${v.product_Id}">${v.price}</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                `
+            })
+            htmlListProduct= data.join("")
+            list_product.innerHTML= htmlListProduct
+            if (cate_id){
+                if (preCateID!==cate_id){
+                    renderPage(products.total_page, cate_id, name, sort)
+                    preCateID= cate_id;
+                }  
+                
+            }
+            if (name){
+                if (name!==preNameSearch){
+                    renderPage(products.total_page, cate_id, name, sort)
+                }
+                    preNameSearch= name;
+                
+            }
+            if (sort){
+                if (sort!==preSort){
+                    renderPage(products.total_page, cate_id, name, sort)
+                    preSort= sort;
+                }
+                
+            }
+            if (min){
+                if (max!=preMax){
+                    renderPage(products.total_page, cate_id, name, sort, min, max)
+                    preMax= max;
+                }
+                if (min!=preMin){
+                    renderPage(products.total_page, cate_id, name, sort, min, max)
+                    preMin= min;
+                }
+            }
+        });
+    }
+    //handle form search
+    let btn_submit_search= document.getElementById("btn_submit_search")
+    let name_search= document.getElementById("name_search")
+    btn_submit_search.addEventListener("click", ()=>{
+        let name= name_search.value
+        
+        load_product_page(1, preCateID, name, preSort, preMin, preMax)
+    })
+    
+    //handle price 
+    let btn_search_slider = document.getElementById("btn-search-slider-price")
+    let minamount= document.getElementById("minamounth")
+    let maxamount= document.getElementById("maxamounth")
+    btn_search_slider.addEventListener("click", ()=>{
+        let min = minamount.value || 0
+        let max = maxamount.value || 0
+        if (max>min){
+            load_product_page(1, preCateID, preNameSearch, preSort, min, max)
+        }else {
+            alert("Invalid price")
+        }                        
+    }) 
+    //handle sort
+    let price_asc = document.getElementById("price-asc")
+    let price_desc = document.getElementById("price-desc")
+    let star_asc = document.getElementById("star-asc")
+    let star_desc = document.getElementById("star-desc")
+    
+    price_asc.addEventListener('click', (e)=>{
+        e.preventDefault()
+        load_product_page(1, preCateID, preNameSearch, 'price-asc', preMin, preMax)
+    })
+    price_desc.addEventListener('click', (e)=>{
+        e.preventDefault()
+        load_product_page(1, preCateID, preNameSearch, 'price-desc', preMin, preMax)
+    })
+    star_asc.addEventListener('click', (e)=>{
+        e.preventDefault()
+        load_product_page(1, preCateID, preNameSearch, 'rate-star-asc', preMin, preMax)
+    })
+    star_desc.addEventListener('click', (e)=>{
+        e.preventDefault()
+        load_product_page(1, preCateID, preNameSearch, 'rate-star-desc', preMin, preMax)
+    })
+    function renderPage(total_page=1, cate_id=0, name, sort, min, max){
+        let pagingHtml= ``
+        for (let i=1; i <= Number(total_page); i++){
+            pagingHtml+= `
+                <a href=""
+            class="currentPage" onclick="load_product_page(${i}, ${cate_id}, '${name||''}', '${sort||''}', ${min}, ${max})">${i}</a>
+            `
+        }
+        pageComponent.innerHTML= pagingHtml
+        activePage()
+    }
+    renderPage(total_page)
+    function activePage(){
+        let pages= document.getElementsByClassName("currentPage")
+        let prePage= pages[0];
+        prePage.classList.add("is_acctive")
+        for (let page of pages){
+            page.addEventListener('click', (e)=>{
+                e.preventDefault()
+                e.target.classList.add("is_acctive")
+                prePage.classList.remove("is_acctive")
+                prePage= page
+            })
+        }
+    }
+    {{!-- activePage() --}}
+    let categories= document.getElementsByClassName("currentCategory")
+    let preCate;//= categories[0];
+    {{!-- preCate.classList.add("is_acctive") --}}
+    for (let cate of categories){
+        cate.addEventListener('click', (e)=>{
+            e.preventDefault()
+            e.target.classList.add("is_acctive")
+            if (preCate){
+                preCate.classList.remove("is_acctive") 
+            }
+            preCate= cate
+            
+        })
+    }
+    
+    function addToCart(product_Id){
+        let user_Id = {{user.user_Id}}
+        $.post(
+            "/cartCheckout", 
+            {user_Id: user_Id, product_Id: product_Id, quantity: 1}
+        )
+        .done(function(data){
+            alert("Add cart", data)
+        })
+    }
+</script>

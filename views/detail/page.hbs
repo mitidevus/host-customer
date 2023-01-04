@@ -1,0 +1,284 @@
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="/img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Detail page</h2>
+                    <div class="breadcrumb__option">
+                        {{! <a href="./index.html">Home</a> }}
+                        {{! <a href="./index.html">Vegetables</a>
+                        <span>Vegetable’s Package</span> }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Product Details Section Begin -->
+<section class="product-details spad">
+    {{#each product}}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                            <img class="product__details__pic__item--large" src="{{image}}" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                    <p id="product_Id" style="display: none;">{{product_Id}}</p>
+                        <h3>{{name}}</h3>
+                        <div class="product__details__rating">
+                            <div>
+                                {{rate_Star}}
+                                <i class="fa fa-star"></i>/5<i class="fa fa-star"></i>
+                            </div>
+
+                            <span>(18 reviews)</span>
+                        </div>
+                        <div class="product__details__price">{{price}}</div>
+                        <p>{{description}}</p>
+                        <a onclick="addToCart({{product_Id}})" class="primary-btn" style="cursor: pointer;">ADD TO CARD</a>
+                        <ul>
+                            <li><b>Remain amount</b> <span>{{remain_Amount}}</span></li>
+                            <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link active"
+                                    data-toggle="tab"
+                                    href="#tabs-1"
+                                    role="tab"
+                                    aria-selected="true"
+                                >Description</a>
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link"
+                                    data-toggle="tab"
+                                    href="#tabs-2"
+                                    role="tab"
+                                    aria-selected="false"
+                                >Reviews</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <p>{{description}}</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <form>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="shadow-0 border" style="background-color: #f0f2f5; width: 100%;">
+                                            <div class="card-body p-4">
+                                                {{#if ../user}}
+                                                <p id="user_Id" style="display: none;">{{../user.user_Id}}</p>
+                                                
+                                                <div class="form-outline mb-4">
+                                                    <label class="form-label" for="addANote">Comment</label>
+                                                    <input
+                                                        type="text"
+                                                        id="review-content"
+                                                        class="form-control mb-3"
+                                                        placeholder="Type comment..."
+                                                        required
+                                                    />
+                                                    <button type="button" class="btn primary-btn" name="post-rating"
+                                                        id="post-rating">Submit</button>
+                                                </div>
+
+                                                {{else}}
+                                                <div class="alert alert-warning" role="alert">
+                                                    <h4 class="alert-heading">You need to login to comment!</h4>
+                                                    <p>
+                                                        <a href="/auth/login">Login</a>
+                                                        or
+                                                        <a href="/auth/register">Register</a>
+                                                        to comment
+                                                    </p>
+                                                </div>
+                                                {{/if}}
+
+                                                <div id="list_reviews">
+                                                {{#each ../reviews.data}}
+                                                    <div class="card mb-2">
+                                                        <div class="card-body">
+                                                            <div class="d-flex">
+                                                                <img
+                                                                    src="{{this.avatar}}"
+                                                                    alt="avatar"
+                                                                    width="50"
+                                                                    height="50"
+                                                                    class="rounded-circle"
+                                                                />
+                                                                <div class="ml-3">
+                                                                    <span class="font-weight-bold">{{this.fullname}}</span>
+                                                                    <p class="">{{this.content}}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {{/each}}
+                                                </div>
+                                                <p id="total_page" style="display: none;">{{../reviews.total_page}}</p>
+                                                    
+                                                <div class="row justify-content-center">
+                                                    <div id="page_reviews" class="d-flex justify-content-center product__pagination">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</section>
+<!-- Product Details Section End -->
+
+<!-- Related Product Section Begin -->
+<section class="related-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title related__product__title">
+                    <h2>Related Product</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {{#each listProductRelated}}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic">
+                            <a href="/detail/{{this.product_Id}}">
+                                <img src="{{this.image}}" alt="image" />
+                            </a>
+                            <ul class="product__item__pic__hover">
+                                {{! <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li> }}
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="/detail/{{product_Id}}">{{this.name}}</a></h6>
+                            <h5><a class="product__item__price" href="/detail/{{product_Id}}">{{this.price}}</a></h5>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+<!-- Related Product Section End -->
+
+<script>
+    let productId = document.getElementById("product_Id").innerText;
+    let total_page = document.getElementById("total_page").innerText;
+    let page_reviews = document.getElementById("page_reviews");
+    let html = `<div>`;
+    for (let i = 1; i <= Number(total_page); i++) {
+        html += `<a href="" onclick="load_reviews_page(${i})" class="currentPage">${i}</a>`;
+    }
+   
+    html += `</div>`;
+    page_reviews.innerHTML = html;
+    let list_reviews = document.getElementById("list_reviews");
+    
+    function load_reviews_page(page=1) {
+        let htmlListReviews = ``;
+        $.getJSON(`/api/detail/` + productId + `?page=${page}`, function (reviews) {
+            const data = reviews.data.map(v => {
+                return `
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <img
+                                    src="${v.avatar}"
+                                    alt="avatar"
+                                    width="50"
+                                    height="50"
+                                    class="rounded-circle"
+                                />
+                                <div class="ml-3">
+                                    <span class="font-weight-bold">${v.fullname}</span>
+                                    <p class="">${v.content}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            })
+            htmlListReviews = data.join("");
+            list_reviews.innerHTML= htmlListReviews;
+        });
+    }
+    
+    let pages = document.getElementsByClassName("currentPage");
+    let prePage= pages[0];
+    prePage.classList.add("is_acctive");
+    for (let page of pages) {
+        page.addEventListener('click', (e)=>{
+            e.preventDefault();
+            e.target.classList.add("is_acctive");
+            prePage.classList.remove("is_acctive");
+            prePage = page;
+        });
+    }
+    function setIsActiveForPage(){
+    }
+
+    let rating_btn = document.getElementById("post-rating");
+    rating_btn.addEventListener("click", function () {
+        let content = document.getElementById("review-content").value;
+        let productId = document.getElementById("product_Id").innerText;
+        let userId = document.getElementById("user_Id").innerText;
+        let data = {
+            userId: userId,
+            content: content,
+            productId: productId,
+        };
+        $.ajax({
+            url: "/api/detail",
+            type: "POST",
+            data: data,
+            success: function (result) {
+                console.log(result);
+                load_reviews_page(1)
+                document.getElementById("review-content").value = "";
+            },
+        });
+    });
+
+    function addToCart(product_Id){
+        let user_Id = {{user.user_Id}}
+        $.post(
+            "/cartCheckout", 
+            {user_Id: user_Id, product_Id: product_Id, quantity: 1}
+        )
+        .done(function(data){
+            alert("Add cart complete", data)
+        })
+    }
+
+</script>

@@ -1,0 +1,67 @@
+{{! <html lang="en">
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="/img/title/icon-shop.png" />
+    <title>Login</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="/css/style_login.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css" />
+    <link rel="stylesheet" href="/css/nice-select.css" type="text/css" />
+    <link rel="stylesheet" href="/css/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+
+</head>
+
+<body style="background-image: url(../img/auth/auth_background.jpg);
+        background-size: cover; 
+        background-position: center;
+        background-repeat: no-repeat;"> }}
+
+<div class="background-wrapper">
+    <div class="auth-wrapper">
+        <form method="post" class="auth-form">
+            <h3>Login</h3>
+
+            {{#if error}}
+                <p class="auth-error">{{error}}</p>
+            {{/if}}
+
+            <div class="my-3 form-group">
+                <input name="email" type="email" class="form-control" placeholder="Email" required />
+            </div>
+
+            <div class="mb-3 form-group">
+                <input name="password" type="password" class="form-control" placeholder="Password" required />
+            </div>
+
+            <div class="d-flex justify-content-end align-items-center mb-3">
+                <span class="forgot-password">
+                    Forgot
+                    <a href="/auth/forgotpassword"> password?</a>
+                </span>
+            </div>
+            <div class="d-grid center mb-3 form-group">
+                <button type="submit" class="btn btn-success w-75 rounded submit">Login</button>
+            </div>
+            <p class="mt-5">
+                New to Ogani?
+                <a href="/auth/register" class="ms-1">
+                    Sign Up
+                </a>
+            </p>
+        </form>
+    </div>
+</div>
+{{! </body> }}
+
+{{! </html> }}

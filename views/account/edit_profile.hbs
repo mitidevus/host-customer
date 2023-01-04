@@ -1,0 +1,36 @@
+<div class="background-wrapper">
+    <div class="auth-wrapper">
+        <form method="post" class="auth-form">
+            <h3>Edit Profile</h3>
+
+            <div class="my-3 form-group">
+                <input name="id" type="hidden" value={{user.user_Id}} />
+            </div>
+
+            <div class="my-3 form-group">
+                <span class="ml-2" style="font-weight: 600;">
+                    Fullname
+                </span>
+                <input value="{{user.fullname}}" name="fullname" type="text" class="form-control" required />
+            </div>
+
+            <div class="mb-3 form-group">
+                <span class="ml-2" style="font-weight: 600;">
+                    Address
+                </span>
+                <input value="{{user.address}}" name="address" type="text" class="form-control" required />
+            </div>
+
+            <div class="mb-3 form-group">
+                <span class="ml-2" style="font-weight: 600;">
+                    Avatar URL
+                </span>
+                <input value="{{user.avatar}}" name="avatar" type="text" class="form-control" required />
+            </div>
+
+            <div class="d-grid center mb-3 form-group">
+                <button type="submit" class="btn btn-success w-75 rounded submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

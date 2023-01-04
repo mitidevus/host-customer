@@ -1,0 +1,269 @@
+<!-- Hero Section Begin -->
+<section class="hero">
+    <div class="container">
+        <div class="row">
+         
+            <div class="col-lg-12">
+                <div class="hero__search">
+                    
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+65 11.188.888</h5>
+                            <span>support 24/7 time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
+                    <div class="hero__text">
+                        <span>FRUIT FRESH</span>
+                        <h2>Vegetable <br />100% Organic</h2>
+                        <p>Free Pickup and Delivery Available</p>
+                        <a href="#" class="primary-btn">SHOP NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Categories Section Begin -->
+<section class="categories">
+    <div class="container">
+        <div class="row">
+            <div class="categories__slider owl-carousel">
+                <div class="col-lg-3">
+                    <div class="categories__item set-bg" data-setbg="img/categories/cat-1.jpg">
+                        <h5 class="sp-qc">Fresh Fruit</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="categories__item set-bg" data-setbg="img/categories/cat-2.jpg">
+                        <h5 class="sp-qc">Dried Fruit</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="categories__item set-bg" data-setbg="img/categories/cat-3.jpg">
+                        <h5 class="sp-qc">Vegetables</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="categories__item set-bg" data-setbg="img/categories/cat-4.jpg">
+                        <h5 class="sp-qc">drink fruits</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg">
+                        <h5 class="sp-qc">meats</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Categories Section End -->
+
+<!-- Featured Section Begin -->
+<section class="featured spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    {{!-- <h2>Featured Product</h2> --}}
+                    <h2>Hot Products</h2>
+                </div>
+                {{!-- <div class="featured__controls">
+                    <ul>
+                        <li class="active" data-filter="*">All</li>
+                        {{#each tam}}
+                        <li data-filter=".{{this.category_Id}}">{{category}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div> --}}
+            </div>
+        </div>
+        <div id="list_product" class="row featured__filter">
+            {{#each hotProducts.data}}
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="featured__item">
+                    <div class="featured__item__pic">
+                        <a href="/detail/{{this.product_Id}}">
+                            <img src="{{this.image}}" alt="image" />
+                        </a>
+                        <ul class="featured__item__pic__hover">
+                            <li><a onclick="addToCart({{this.product_Id}})" id="addCart-{{this.product_Id}}" value="{{this.product_Id}}" data-toggle="modal" data-target="#notification">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="/detail/{{this.product_Id}}">{{this.name}}</a></h6>
+                        <h5><a class="product__item__price" href="/detail/{{this.product_Id}}">{{this.price}}</a></h5>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            
+        </div>
+        <p id="total_page" style="display: none;">{{hotProducts.total_page}}</p>
+            
+        <div class="row">
+            <div id="page_home" class="d-flex justify-content-center product__pagination">
+            </div>
+            
+        </div>
+    </div>
+
+</section>
+<!-- Featured Section End -->
+
+<!-- Banner Begin -->
+<div class="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="banner__pic">
+                    <img src="img/banner/banner-1.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="banner__pic">
+                    <img src="img/banner/banner-2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner End -->
+
+<!-- Blog Section Begin -->
+<section class="from-blog spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title from-blog__title">
+                    <h2>From The Blog</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic">
+                        <img src="img/blog/blog-1.jpg" alt="">
+                    </div>
+                    <div class="blog__item__text">
+                        <ul>
+                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                            <li><i class="fa fa-comment-o"></i> 5</li>
+                        </ul>
+                        <h5><a href="#">Cooking tips make cooking simple</a></h5>
+                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic">
+                        <img src="img/blog/blog-2.jpg" alt="">
+                    </div>
+                    <div class="blog__item__text">
+                        <ul>
+                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                            <li><i class="fa fa-comment-o"></i> 5</li>
+                        </ul>
+                        <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic">
+                        <img src="img/blog/blog-3.jpg" alt="">
+                    </div>
+                    <div class="blog__item__text">
+                        <ul>
+                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                            <li><i class="fa fa-comment-o"></i> 5</li>
+                        </ul>
+                        <h5><a href="#">Visit the clean farm in the US</a></h5>
+                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Section End -->
+<script>
+    let total_page= document.getElementById("total_page").innerText
+    let page_home= document.getElementById("page_home")
+    let html=`<div class="wrapper-button">`
+    for (let i=1; i<=Number(total_page); i++){
+        html+= `<a href="" onclick="load_product_page(${i})" class="currentPage">${i}</a>`
+    }
+    html+=`</div>`
+    page_home.innerHTML= html
+    let list_product= document.getElementById("list_product")
+    
+    function load_product_page(page=1){
+        let htmlListProduct=``
+        $.getJSON(`/api/home?page=${page}`, function (products) {
+            const data= products.data.map(v=>{
+                v.price = v.price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
+                return `
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="featured__item">
+                            <div class="featured__item__pic">
+                                <a href="/detail/${v.product_Id}">
+                                    <img src="${v.image}" alt="image" />
+                                </a>
+                                <ul class="featured__item__pic__hover">
+                                    <li><a onclick="addToCart(${v.product_Id})" id="addCart-${v.product_Id}" value="${v.product_Id}" data-toggle="modal"
+                                            data-target="#notification">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h6><a href="/detail/${v.product_Id}">${v.name}</a></h6>
+                                <h5><a class="product__item__price" href="/detail/${v.product_Id}">${v.price}</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                `
+            })
+            htmlListProduct= data.join("")
+            list_product.innerHTML= htmlListProduct
+        });
+    }
+    
+    let pages= document.getElementsByClassName("currentPage")
+    let prePage= pages[0];
+    prePage.classList.add("is_acctive")
+    for (let page of pages){
+        page.addEventListener('click', (e)=>{
+            e.preventDefault()
+            e.target.classList.add("is_acctive")
+            prePage.classList.remove("is_acctive")
+            prePage= page
+        })
+    }
+    function addToCart(product_Id){
+        let user_Id = {{user.user_Id}}
+        $.post(
+            "/cartCheckout", 
+            {user_Id: user_Id, product_Id: product_Id, quantity: 1}
+        )
+        .done(function(data){
+            alert("Added to cart", data)
+        })
+    }
+</script>
