@@ -262,12 +262,12 @@
     btn_search_slider.addEventListener("click", ()=>{
         let min = minamount.value || 0
         let max = maxamount.value || 0
-        if (max>min){
+        if (Number(max)>Number(min)){
             load_product_page(1, preCateID, preNameSearch, preSort, min, max)
         }else {
             alert("Invalid price")
         }                        
-    }) 
+    })
     //handle sort
     let price_asc = document.getElementById("price-asc")
     let price_desc = document.getElementById("price-desc")
